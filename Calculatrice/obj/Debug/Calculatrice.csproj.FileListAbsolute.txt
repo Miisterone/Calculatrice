@@ -12,3 +12,4 @@ C:\Users\miist\Documents\C#\Calculatrice\Calculatrice\obj\Debug\Calculatrice.csp
 C:\Users\miist\Documents\C#\Calculatrice\Calculatrice\obj\Debug\Calculatrice.exe
 C:\Users\miist\Documents\C#\Calculatrice\Calculatrice\obj\Debug\Calculatrice.pdb
 C:\Users\miist\Documents\C#\Calculatrice\Calculatrice\obj\Debug\Calculatrice.csproj.AssemblyReference.cache
+C:\Users\miist\Documents\C#\Calculatrice\Calculatrice\obj\Debug\Calculatrice_MarkupCompile.lref

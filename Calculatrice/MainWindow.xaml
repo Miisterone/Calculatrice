@@ -1,283 +1,331 @@
 ﻿<Window
-    Height="415"
+    Height="400"
+    MaxHeight="800"
+    MaxWidth="600"
+    MinWidth="336"
     Title="Calculatrice"
-    Width="335"
+    Width="336"
     mc:Ignorable="d"
     x:Class="Calculatrice.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Grid Background="LightGray">
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:calculatrice="clr-namespace:Calculatrice">
+    <Grid Background="#E6E6E6">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
-            <RowDefinition />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <StackPanel Grid.ColumnSpan="4">
-            <Label
-                Background="LightGray"
-                FontSize="20"
-                Grid.Column="0"
-                Grid.ColumnSpan="4"
-                Grid.Row="0"
-                HorizontalContentAlignment="Right"
-                Name="LastNumber"
-                VerticalContentAlignment="Center">
-                LastNumber
-            </Label>
-            <Label
-                Background="LightGray"
-                FontFamily="Times New Roman Bold"
-                FontSize="30"
-                Grid.Column="0"
-                Grid.ColumnSpan="4"
-                Grid.Row="0"
-                HorizontalContentAlignment="Right"
-                Name="Result"
-                VerticalContentAlignment="Center">
-                Total:
-            </Label>
-
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="84*" />
+            <ColumnDefinition Width="84*" />
+            <ColumnDefinition Width="84*" />
+            <ColumnDefinition Width="84*" />
+        </Grid.ColumnDefinitions>
 
         <StackPanel
-            Background="LightGray"
             Grid.Column="0"
-            Grid.Row="1">
+            Grid.ColumnSpan="4"
+            Grid.Row="0">
+            <TextBlock
+                FontSize="14"
+                FontWeight="Normal"
+                Foreground="#6F6F6F"
+                MinHeight="30"
+                Name="Calculation"
+                Padding="0,5,10,0"
+                Text="{Binding Path=MaxLevelofInvestment, StringFormat='Amount is {0}'}"
+                TextAlignment="Right">
+                Calculation
+            </TextBlock>
+            <TextBlock
+                FontSize="46"
+                FontWeight="SemiBold"
+                MinHeight="50"
+                Name="Result"
+                Padding="0,0,10,0"
+                Text="{Binding Path=MaxLevelofInvestment, StringFormat='Amount is {0}'}"
+                TextAlignment="Right"
+                TextWrapping="Wrap">
+                Result
+            </TextBlock>
+        </StackPanel>
+        <Grid
+            Grid.Column="0"
+            Grid.Row="1"
+            Margin="2,0,0,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <Button
                 Background="GhostWhite"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                Grid.Row="0"
                 Loaded="TxtName_OnLoaded"
                 Margin="2"
+                MinHeight="50"
                 Visibility="Hidden"
                 x:Name="Button" />
             <Button
-                Background="GhostWhite"
-                Click="Add_7"
+                Background="#FAFAFA"
+                BorderBrush="#FAFAFA"
+                Click="Number"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                FontWeight="SemiBold"
+                Grid.Row="1"
                 Loaded="TxtName_OnLoaded"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnAdd7">
                 7
             </Button>
             <Button
-                Background="GhostWhite"
-                Click="Add_4"
+                Background="#FAFAFA"
+                BorderBrush="#FAFAFA"
+                Click="Number"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                FontWeight="SemiBold"
+                Grid.Row="2"
                 Loaded="TxtName_OnLoaded"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnAdd4">
                 4
             </Button>
             <Button
-                Background="GhostWhite"
-                Click="Add_1"
+                Background="#FAFAFA"
+                BorderBrush="#FAFAFA"
+                Click="Number"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                FontWeight="SemiBold"
+                Grid.Row="3"
                 Loaded="TxtName_OnLoaded"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnAdd1">
                 1
             </Button>
-        </StackPanel>
-        <StackPanel
-            Background="LightGray"
+        </Grid>
+        <Grid
             Grid.Column="1"
-            Grid.Row="1">
+            Grid.Row="1"
+            Margin="0,0,0,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <Button
-                Background="GhostWhite"
-                Click="ClearLastAdd"
+                FontWeight="SemiBold"
+                Background="#FAFAFA"
+                BorderBrush="#FAFAFA"
+                Click="Number"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                Grid.Row="1"
                 Margin="2"
-                x:Name="BtnClearLastAdd">
-                CE
-            </Button>
-            <Button
-                Background="GhostWhite"
-                Click="Add_8"
-                ClickMode="Press"
-                FontFamily="Arial Bold"
-                FontSize="20"
-                Height="50"
-                Margin="2"
+                MinHeight="50"
                 x:Name="BtnAdd8">
                 8
             </Button>
             <Button
-                Background="GhostWhite"
-                Click="Add_5"
+                Background="#FAFAFA"
+                BorderBrush="#FAFAFA"
+                Click="Number"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                FontWeight="SemiBold"
+                Grid.Row="2"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnAdd5">
                 5
             </Button>
             <Button
-                Background="GhostWhite"
-                Click="Add_2"
+                Background="#FAFAFA"
+                BorderBrush="#FAFAFA"
+                Click="Number"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                FontWeight="SemiBold"
+                Grid.Row="3"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnAdd2">
                 2
             </Button>
             <Button
-                Background="GhostWhite"
-                Click="Add_0"
+                Background="#FAFAFA"
+                BorderBrush="#FAFAFA"
+                Click="Number"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                FontWeight="SemiBold"
+                Grid.Row="4"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnAdd0">
                 0
             </Button>
-        </StackPanel>
-        <StackPanel
-            Background="LightGray"
+        </Grid>
+        <Grid
             Grid.Column="2"
-            Grid.Row="1">
+            Grid.Row="1"
+            Margin="0,0,0,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <Button
-                Background="GhostWhite"
+                Background="#F0F0F0"
+                BorderBrush="#F0F0F0"
                 Click="Clear"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                Grid.Row="0"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnClear">
                 C
             </Button>
             <Button
-                Background="GhostWhite"
-                Click="Add_9"
+                Background="#FAFAFA"
+                BorderBrush="#FAFAFA"
+                Click="Number"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                FontWeight="SemiBold"
+                Grid.Row="1"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnAdd9">
                 9
             </Button>
             <Button
-                Background="GhostWhite"
-                Click="Add_6"
+                Background="#FAFAFA"
+                BorderBrush="#FAFAFA"
+                Click="Number"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                FontWeight="SemiBold"
+                Grid.Row="2"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnAdd6">
                 6
             </Button>
             <Button
-                Background="GhostWhite"
-                Click="Add_3"
+                Background="#FAFAFA"
+                BorderBrush="#FAFAFA"
+                Click="Number"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                FontWeight="SemiBold"
+                Grid.Row="3"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnAdd3">
                 3
             </Button>
             <Button
-                Background="GhostWhite"
+                Background="#FAFAFA"
+                BorderBrush="#FAFAFA"
                 Click="Float"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                FontWeight="SemiBold"
+                Grid.Row="4"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnFloat">
                 ,
             </Button>
-        </StackPanel>
-        <StackPanel
-            Background="LightGray"
+        </Grid>
+        <Grid
             Grid.Column="3"
-            Grid.Row="1">
+            Grid.Row="1"
+            Margin="0,0,2,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <Button
-                Background="GhostWhite"
-                Click="DeleteLastNumber"
+                Background="#F0F0F0"
+                BorderBrush="#F0F0F0"
+                Click="Operator"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                Grid.Row="0"
                 Margin="2"
-                x:Name="BtnDeleteLastNumber">
-                X
-            </Button>
-            <Button
-                Background="GhostWhite"
-                Click="Division"
-                ClickMode="Press"
-                FontFamily="Arial Bold"
-                FontSize="20"
-                Height="50"
-                Margin="2"
+                MinHeight="50"
                 x:Name="BtnDivision">
                 /
             </Button>
             <Button
-                Background="GhostWhite"
-                Click="Substraction"
+                Background="#F0F0F0"
+                BorderBrush="#F0F0F0"
+                Click="Operator"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                Grid.Row="1"
                 Margin="2"
+                MinHeight="50"
+                x:Name="BtnMultiplication">
+                x
+            </Button>
+            <Button
+                Background="#F0F0F0"
+                BorderBrush="#F0F0F0"
+                Click="Operator"
+                ClickMode="Press"
+                FontSize="20"
+                Grid.Row="2"
+                Margin="2"
+                MinHeight="50"
                 x:Name="BtnSubstraction">
                 -
             </Button>
             <Button
-                Background="GhostWhite"
-                Click="Addition"
+                Background="#F0F0F0"
+                BorderBrush="#F0F0F0"
+                Click="Operator"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                Grid.Row="3"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnAddition">
                 +
             </Button>
             <Button
-                Background="GhostWhite"
+                Background="#B88E90"
+                BorderBrush="#B88E90"
                 Click="Equal"
                 ClickMode="Press"
-                FontFamily="Arial Bold"
                 FontSize="20"
-                Height="50"
+                Grid.Row="4"
                 Margin="2"
+                MinHeight="50"
                 x:Name="BtnEqual">
                 =
             </Button>
-        </StackPanel>
+        </Grid>
     </Grid>
 </Window>
